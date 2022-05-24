@@ -1,12 +1,19 @@
 const express = require('express');
 const app = express();
-
 const mongodb = require('./config/database');
-
 const bodyParser = require('body-parser');
+const expressLayouts = require("express-ejs-layouts");
+
+
+
+app.engine(".ejs", require("ejs").__express);
+app.set("view engine", "ejs");
+app.set("views", "./views");
+app.use(expressLayouts);  // Tiene que ir antes del body-parser
+
+
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-
 app.use('/', require('./routes/users'));
 
 app.use(function(req, res) {

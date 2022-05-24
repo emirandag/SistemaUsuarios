@@ -20,12 +20,14 @@ app.route('/', (req, res) => {
 
 
 router.route('/').get((req, res) => {
-    res.status(200).json({isConnected: true});
+    //res.status(200).json({isConnected: true});
+    res.render('index');
 });
 
 router.route('/signin').get((req, res) => {
 
-    res.status(200).json({isConnected: true});
+    //res.status(200).json({isConnected: true});
+    res.render('signin');
     
 }).post((req, res) => {
 
@@ -82,7 +84,8 @@ router.route('/signin').get((req, res) => {
 
 router.route('/signup').get((req, res) => {
 
-    res.status(200).json({isConnected: true});
+    //res.status(200).json({isConnected: true});
+    res.render('signup');
 
 }).post((req, res) => {
 
